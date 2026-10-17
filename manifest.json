@@ -1,0 +1,19 @@
+{
+  "name": "Discipline 30 \u2014 Daily Habits",
+  "short_name": "Discipline 30",
+  "description": "A 30-day shared challenge for movement, Bhagavad Gita reading, and consistency.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7f3",
+  "theme_color": "#17352a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

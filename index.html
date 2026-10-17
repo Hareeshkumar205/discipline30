@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17352a">
+  <meta name="description" content="Discipline 30 — build consistency with daily movement, Bhagavad Gita reading, and a shared challenge.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>Discipline 30</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">D<span>30</span></div>
+    <div class="brand-copy"><strong>Discipline 30</strong><small>Small steps. Every day.</small></div>
+    <button id="installBtn" class="button button-quiet hidden" type="button">Install</button>
+  </header>
+
+  <main class="page">
+    <section class="hero panel">
+      <div class="eyebrow" id="challengeLabel">YOUR 30-DAY CHALLENGE</div>
+      <div class="hero-line">
+        <div><h1 id="greeting">Show up for yourself.</h1><p id="todayLabel" class="muted">Your next small step starts today.</p></div>
+        <div class="day-ring"><span id="dayNumber">1</span><small>DAY</small></div>
+      </div>
+      <div class="progress-track"><div id="overallBar" class="progress-fill" style="width:0%"></div></div>
+      <div class="progress-caption"><span id="progressLabel">0% complete</span><span id="dateLabel"></span></div>
+      <p class="hero-quote">“You control your actions. Keep returning to the path.”</p>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><span class="stat-icon">🏋️</span><strong id="gymTotal">0</strong><small>Movement days</small></article>
+      <article class="stat-card"><span class="stat-icon">🙏</span><strong id="gitaTotal">0</strong><small>Gita readings</small></article>
+      <article class="stat-card"><span class="stat-icon">🤝</span><strong id="partnerTotal">—</strong><small>Partner check-ins</small></article>
+    </section>
+
+    <nav class="tabs" aria-label="App sections">
+      <button class="tab active" data-tab="today">Today</button>
+      <button class="tab" data-tab="gita">Gita</button>
+      <button class="tab" data-tab="plan">Plan</button>
+      <button class="tab" data-tab="together">Together</button>
+    </nav>
+
+    <section id="tab-today" class="tab-panel">
+      <div class="section-heading"><div><div class="eyebrow">DAILY CHECK-IN</div><h2>Today's promises</h2></div><span id="completionPill" class="pill">0 of 2</span></div>
+      <article class="task-card">
+        <div class="task-symbol green">↗</div><div class="task-body"><h3 id="workoutTitle">Planned movement</h3><p id="workoutDescription">Follow today's workout or recovery session.</p><small id="workoutDuration">20–45 minutes</small></div>
+        <label class="switch"><input id="gymCheck" type="checkbox"><span></span><b class="sr-only">Mark movement complete</b></label>
+      </article>
+      <article class="task-card">
+        <div class="task-symbol gold">ॐ</div><div class="task-body"><h3>Read two shlokas</h3><p>Read today's Bhagavad Gita references, understand their meanings, and choose one lesson.</p><button class="text-button" data-go="gita">Open today's reading →</button></div>
+        <label class="switch"><input id="gitaCheck" type="checkbox"><span></span><b class="sr-only">Mark Gita reading complete</b></label>
+      </article>
+      <label class="field-label" for="reflection">One-line reflection (optional)</label>
+      <textarea id="reflection" rows="2" maxlength="400" placeholder="What did I learn or overcome today?"></textarea>
+      <div class="button-row"><button id="saveCheckin" class="button button-primary">Save today's check-in</button><button id="resetToday" class="button button-outline">Clear</button></div>
+      <div id="saveStatus" class="status" role="status"></div>
+      <aside class="coach-note"><span>🌱</span><div><strong>On a low-motivation day?</strong><p>Do the smallest safe version. A short walk or five minutes of reading keeps the return easy. Recovery days count when planned.</p></div></aside>
+    </section>
+
+    <section id="tab-gita" class="tab-panel hidden">
+      <div class="section-heading"><div><div class="eyebrow">DAILY WISDOM</div><h2>Bhagavad Gita</h2></div><span class="pill">2 shlokas</span></div>
+      <p class="muted">Use these references with your preferred Bhagavad Gita edition. The explanations below are concise meaning summaries, not word-for-word translations.</p>
+      <article class="verse-card"><div class="verse-label">SHLOKA 1</div><h3 id="verse1ref">Chapter 2, Verse 47</h3><p id="verse1meaning"></p></article>
+      <article class="verse-card"><div class="verse-label">SHLOKA 2</div><h3 id="verse2ref">Chapter 2, Verse 48</h3><p id="verse2meaning"></p></article>
+      <article class="reflection-card"><label class="field-label" for="gitaReflection">Today's lesson in my own words</label><textarea id="gitaReflection" rows="3" maxlength="500" placeholder="How can I apply this teaching today?"></textarea><button id="saveGitaReflection" class="button button-outline">Save reflection</button><div id="gitaStatus" class="status" role="status"></div></article>
+      <p class="small-note">For the exact Sanskrit text, use a trusted printed edition or a reputable Gita text source. This app avoids presenting paraphrases as exact scripture.</p>
+    </section>
+
+    <section id="tab-plan" class="tab-panel hidden">
+      <div class="section-heading"><div><div class="eyebrow">MOVE WITH CARE</div><h2>Weekly plan</h2></div></div>
+      <div id="weeklyPlan" class="plan-list"></div>
+      <div class="coach-note"><span>💚</span><div><strong>Beginner recovery rule</strong><p>Strength train three days per week at first. Keep weights manageable, learn form, and use the other days for easy walking or recovery. Stop if you feel sharp pain, dizziness, or unusual symptoms.</p></div></div>
+      <h3 class="subheading">30-day roadmap</h3>
+      <div class="roadmap">
+        <div><b>Days 1–7</b><span>Build the cue and learn the routine.</span></div>
+        <div><b>Days 8–14</b><span>Repeat; don't rush to increase weights.</span></div>
+        <div><b>Days 15–21</b><span>Practise returning quickly after a missed day.</span></div>
+        <div><b>Days 22–30</b><span>Review what you can sustain long-term.</span></div>
+      </div>
+    </section>
+
+    <section id="tab-together" class="tab-panel hidden">
+      <div class="section-heading"><div><div class="eyebrow">TWO PEOPLE, ONE PROMISE</div><h2>Challenge together</h2></div><span class="pill" id="syncPill">Local mode</span></div>
+      <p class="muted">Create a shared room and invite your friend with the room code. Both of you can check in from your own phone.</p>
+      <article class="settings-card">
+        <label class="field-label" for="displayName">Your display name</label><input id="displayName" maxlength="40" placeholder="e.g. Hareesh">
+        <label class="field-label" for="roomCode">Shared room code</label><input id="roomCode" maxlength="12" placeholder="e.g. SUNRISE7" autocapitalize="characters">
+        <div class="button-row"><button id="createRoom" class="button button-primary">Create room</button><button id="joinRoom" class="button button-outline">Join room</button></div>
+        <p class="small-note">Cloud sync requires a Supabase project and the setup in README.md. Until configured, your progress is stored only on this device.</p>
+        <div id="roomStatus" class="status" role="status"></div>
+      </article>
+      <h3 class="subheading">Partner progress</h3><div id="partnerList" class="partner-list"><p class="muted">Join a shared room to see partner check-ins.</p></div>
+      <article class="settings-card">
+        <div class="section-heading compact"><div><h3>Morning reminder</h3><p class="muted">Choose a time for a reminder while the app is active.</p></div><span>🔔</span></div>
+        <label class="field-label" for="reminderTime">Reminder time</label><input id="reminderTime" type="time" value="05:50">
+        <div class="button-row"><button id="enableReminder" class="button button-primary">Enable reminder</button><button id="testReminder" class="button button-outline">Test</button></div>
+        <p class="small-note">Browser reminders are best-effort and may require the app to be open. Reliable background push notifications need a push service and server configuration.</p><div id="reminderStatus" class="status" role="status"></div>
+      </article>
+      <article class="settings-card">
+        <h3>Keep your data</h3><p class="muted">Export a copy of your local check-ins and reflections.</p><button id="exportData" class="button button-outline">Export my data</button>
+      </article>
+    </section>
+
+    <footer><p>Progress, not perfection.</p><small>Discipline 30 · A personal habit companion</small></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
